@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.firefreefear.tips.R;
-import com.firefreefear.tips.model.TipsModel;
+import com.firefreefear.tips.model.WaeponModel;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -19,12 +19,12 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-public class DetailTipsActivity extends AppCompatActivity {
+public class DetailWaeponActivity extends AppCompatActivity {
 
-    public static final String EXTRA_TIPS_DATA = "extra_tips_data";
-    private ImageView img_tips;
-    private TextView tittle, desc;
-    private String image, title, description;
+    public static final String EXTRA_WAEPON_DATA = "extra_waepon_data";
+    private ImageView img_waepon;
+    private TextView name, desc;
+    private String img_url, name_waepon, desc_waepon;
 
     private AdView adView;
     private RelativeLayout banner_layout;
@@ -32,7 +32,7 @@ public class DetailTipsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_tips);
+        setContentView(R.layout.activity_detail_waepon);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -43,38 +43,37 @@ public class DetailTipsActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
         banner_layout = findViewById(R.id.layout_banner);
-        adView.setAdListener(new AdListener(){
+        adView.setAdListener(new AdListener() {
             @Override
-            public void onAdLoaded(){
+            public void onAdLoaded() {
                 super.onAdLoaded();
-                DetailTipsActivity.this.banner_layout.setVisibility(View.VISIBLE);
+                DetailWaeponActivity.this.banner_layout.setVisibility(View.VISIBLE);
             }
         });
 
-        img_tips = findViewById(R.id.img_tips_detail);
-        tittle = findViewById(R.id.tv_tittle_tips);
+        img_waepon = findViewById(R.id.image_waepon);
+        name = findViewById(R.id.name);
         desc = findViewById(R.id.desc);
-
 
         getDataTips();
         setDataTips();
-
     }
 
     private void getDataTips() {
-        TipsModel tipsModel = getIntent().getParcelableExtra(EXTRA_TIPS_DATA);
-        image = tipsModel.getImage_url();
-        title = tipsModel.getTitle();
-        description = tipsModel.getDesc();
+
+        WaeponModel waeponModel = getIntent().getParcelableExtra(EXTRA_WAEPON_DATA);
+        img_url = waeponModel.getImage_url();
+        name_waepon = waeponModel.getName_waepon();
+        desc_waepon = waeponModel.getDesc();
+
     }
 
     private void setDataTips() {
 
-        Glide.with(this).load(image).transition(DrawableTransitionOptions.withCrossFade()).into(img_tips);
-        tittle.setText(title);
-        desc.setText(description);
+        Glide.with(this).load(img_url).transition(DrawableTransitionOptions.withCrossFade())
+                .into(img_waepon);
+        name.setText(name_waepon);
+        desc.setText(desc_waepon);
 
     }
-    
 }
-
