@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FF Guide</string>
+    <string name="title_tips">Tittle Tips</string>
+    <string name="diamond">Diamond</string>
+    <string name="vehicles">Vehicles</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="character">Character</string>
+    <string name="waepon">Waepon</string>
+    <string name="detail_tips">Detail Tips</string>
+    <string name="tips">Tips and Guide</string>
+    <string name="video">Video</string>
+    <string name="detail_wallpaper">Set Wallpaper</string>
+    <string name="sub_tips">TIPS 1</string>
+    <string name="ads_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitialAds">ca-app-pub-3940256099942544/1033173712</string>
+</resources>

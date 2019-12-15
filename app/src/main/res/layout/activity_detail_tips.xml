@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.DetailTipsActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="56dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".activity.DetailTipsActivity">
+
+
+            <ImageView
+                android:id="@+id/img_tips_detail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/free"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_tittle_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="10dp"
+                android:maxLines="2"
+                android:text="@string/title_tips"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/img_tips_detail"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="3dp"
+                android:layout_below="@+id/tv_tittle_tips">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_desc_s"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Description"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description Content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:textStyle="normal"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="15sp"
+                        android:layout_below="@+id/tv_desc_s" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/layout_banner"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:visibility="gone">
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/ads_banner">
+
+        </com.google.android.gms.ads.AdView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+
+

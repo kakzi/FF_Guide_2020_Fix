@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="3dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="190dp">
+
+            <ImageView
+                android:id="@+id/img_wallpaper"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:scaleType="centerCrop"/>
+            <View
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/gradient_wallpaper"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wallpaper"
+                android:textColor="@color/colorWhite"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:padding="15dp"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

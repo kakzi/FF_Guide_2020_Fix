@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@color/colorBgShimmer"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <View
+                android:id="@+id/img_tips"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorContentShimmr"/>
+
+            <View
+                android:id="@+id/tv_title_tips"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/colorContentShimmr"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/img_tips"/>
+
+            <View
+                android:id="@+id/tv_desc_tips1"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_below="@+id/tv_title_tips"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/img_tips"
+                android:background="@color/colorContentShimmr"/>
+
+            <View
+                android:id="@+id/tv_desc_tips2"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_below="@+id/tv_desc_tips1"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/img_tips"
+                android:background="@color/colorContentShimmr"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_below="@+id/tv_desc_tips2"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/img_tips"
+                android:background="@color/colorContentShimmr"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

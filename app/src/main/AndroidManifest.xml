@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.firefreefear.tips">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.DetailWallpaperActivity"
+            android:label="@string/detail_wallpaper"
+            android:parentActivityName=".activity.WallpaperActivity"/>
+        <activity
+            android:name=".activity.VideoActivity"
+            android:label="@string/video"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.DiamondActivity"
+            android:label="@string/diamond"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.VehiclesActivity"
+            android:label="@string/vehicles"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.WallpaperActivity"
+            android:label="@string/wallpaper"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.CharacterActivity"
+            android:label="@string/character"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.WaeponActivity"
+            android:label="@string/waepon"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
+            android:name=".activity.DetailTipsActivity"
+            android:label="@string/detail_tips"
+            android:parentActivityName=".activity.TipsActivity" />
+        <activity
+            android:name=".activity.TipsActivity"
+            android:label="@string/tips"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713"/>
+
+    </application>
+
+</manifest>
