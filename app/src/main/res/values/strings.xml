@@ -15,4 +15,7 @@
     <string name="interstitialAds">ca-app-pub-3940256099942544/1033173712</string>
     <string name="dashboard">Dasboard</string>
     <string name="home">Home</string>
+    <string name="download">Download</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate</string>
 </resources>

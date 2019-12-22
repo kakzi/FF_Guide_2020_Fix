@@ -7,11 +7,13 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -19,6 +21,13 @@ import com.firefreefear.tips.R;
 import com.firefreefear.tips.adapter.DiamondAdapter;
 import com.firefreefear.tips.model.Diamond;
 import com.firefreefear.tips.viewmodel.DiamondViewModel;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import java.util.ArrayList;
 
@@ -28,11 +37,44 @@ public class DiamondActivity extends AppCompatActivity {
     private DiamondAdapter diamondAdapter;
     private DiamondViewModel diamondViewModel;
     private ShimmerFrameLayout shimmerFrameLayout;
+    private AdView adView;
+    private RelativeLayout banner_layout;
+    private InterstitialAd interstitialAd;
+    public static int nbShowInterstitial = 2;
+    public static int mCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diamond);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        adView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+        banner_layout = findViewById(R.id.layout_banner);
+        adView.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded(){
+                super.onAdLoaded();
+                DiamondActivity.this.banner_layout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getResources().getString(R.string.interstitialAds));
+        interstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
+
+        requestNewInterstitial();
 
         shimmerFrameLayout = findViewById(R.id.shimmer_effect_diamond);
         diamondAdapter = new DiamondAdapter();
@@ -46,8 +88,19 @@ public class DiamondActivity extends AppCompatActivity {
         diamondAdapter.setOnItemClickCallback(new DiamondAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Diamond data) {
-                Toast.makeText(DiamondActivity.this, "Anda Memilih "+ data.getTitle(), Toast.LENGTH_SHORT).show();
-            }
+                try {
+                    Intent intent = new Intent(DiamondActivity.this, DetailDiamondActivity.class);
+                    intent.putExtra(DetailDiamondActivity.EXTRA_DIAMOND_DATA, data);
+                    startActivity(intent);
+                    if (mCount == nbShowInterstitial) {
+                        if (interstitialAd.isLoaded())
+                            interstitialAd.show();
+                        mCount = 0;
+                    }
+                    ++ mCount;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }}
         });
 
 
@@ -85,6 +138,11 @@ public class DiamondActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        interstitialAd.loadAd(adRequest);
     }
 
 
