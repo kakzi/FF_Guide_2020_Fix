@@ -100,31 +100,26 @@ public class MainActivity extends AppCompatActivity {
                             showInterstitialAds();
                             break;
                         case 2:
-                            Toast.makeText(MainActivity.this, "Anda memilih Waepons", Toast.LENGTH_SHORT).show();
                             Intent intentWaepon = new Intent(MainActivity.this, WaeponActivity.class);
                             startActivity(intentWaepon);
                             showInterstitialAds();
                             break;
                         case 3:
-                            Toast.makeText(MainActivity.this, "Anda memilih Character", Toast.LENGTH_SHORT).show();
                             Intent intentCharacter = new Intent(MainActivity.this, CharacterActivity.class);
                             startActivity(intentCharacter);
                             showInterstitialAds();
                             break;
                         case 4:
-                            Toast.makeText(MainActivity.this, "Anda memilih vehicles", Toast.LENGTH_SHORT).show();
                             Intent intentVehicles = new Intent(MainActivity.this, VehiclesActivity.class);
                             startActivity(intentVehicles);
                             showInterstitialAds();
                             break;
                         case 5:
-                            Toast.makeText(MainActivity.this, "Anda memilih Diamond", Toast.LENGTH_SHORT).show();
                             Intent intentDiamond = new Intent(MainActivity.this, DiamondActivity.class);
                             startActivity(intentDiamond);
                             showInterstitialAds();
                             break;
                         case 6:
-                            Toast.makeText(MainActivity.this, "Anda memilih Wallpaper", Toast.LENGTH_SHORT).show();
                             Intent intentWallpaper = new Intent(MainActivity.this, WallpaperActivity.class);
                             startActivity(intentWallpaper);
                             showInterstitialAds();

@@ -143,61 +143,11 @@ public class DetailWallpaperActivity extends AppCompatActivity implements View.O
     }
 
     private void startShare() {
-        Bitmap bitmap = viewToBitmap(wallpaper, wallpaper.getWidth(), wallpaper.getHeight());
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("image/jpeg");
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-        File file = new File(Environment.getExternalStorageDirectory() + File.separator + "ImageDemo.jpg");
-        try {
-            file.createNewFile();
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            fileOutputStream.write(byteArrayOutputStream.toByteArray());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        intent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///sdcard/ImageDemo.jpg"));
-        startActivity(Intent.createChooser(intent, "Share Image"));
+
     }
 
     private void startSave() {
-        FileOutputStream fileOutputStream = null;
-        File file = getDisc();
-        if (!file.exists() && !file.mkdirs()) {
-            Toast.makeText(this, "Can't create Directory to save image", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmhhssmm");
-        String date = simpleDateFormat.format(new Date());
-        String name = "Img" + date + ".jpg";
-        String filename = file.getAbsolutePath() + "/" + name;
-        File new_file = new File(filename);
-        try {
-            fileOutputStream = new FileOutputStream(new_file);
-            Bitmap bitmap = viewToBitmap(wallpaper, wallpaper.getWidth(), wallpaper.getHeight());
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
-            Toast.makeText(this, "Save Image succes", Toast.LENGTH_SHORT).show();
-            fileOutputStream.flush();
-            fileOutputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        refreshGallery(new_file);
 
     }
 
-    private void refreshGallery(File new_file) {
-        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        intent.setData(Uri.fromFile(new_file));
-        sendBroadcast(intent);
-    }
-
-    private File getDisc() {
-        File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-        return new File(file, "IMG_WALLPAPER");
-    }
 }
