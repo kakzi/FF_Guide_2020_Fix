@@ -20,19 +20,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
-                app:cardCornerRadius="3dp"
-                android:background="@color/colorPrimary">
+                android:background="@color/colorWhite"
+                app:cardCornerRadius="3dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bg_war" />
+
+                    <ImageView
                         android:id="@+id/image_waepon"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:layout_margin="20dp"
-                        android:layout_centerInParent="true" />
+                        android:layout_centerInParent="true"
+                        android:layout_margin="20dp" />
 
                 </RelativeLayout>
 
@@ -42,23 +48,23 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name Waepon"
                 android:layout_below="@+id/card"
                 android:layout_marginLeft="20dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:layout_marginRight="20dp"
+                android:text="Name Waepon"
                 android:textColor="@color/colorBlack"
-                android:layout_marginRight="20dp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
                 android:layout_margin="10dp"
                 android:padding="10dp"
                 app:cardBackgroundColor="@color/colorWhite"
-                app:cardCornerRadius="3dp"
-                android:layout_below="@+id/name">
+                app:cardCornerRadius="3dp">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -68,8 +74,8 @@
                         android:id="@+id/tv_desc_s"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="Description"
                         android:textColor="@color/colorPrimary"
                         android:textSize="20sp"
@@ -79,15 +85,15 @@
                         android:id="@+id/desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Description Content"
-                        android:layout_marginTop="5dp"
+                        android:layout_below="@+id/tv_desc_s"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
-                        android:textStyle="normal"
+                        android:text="Description Content"
                         android:textColor="@color/colorBlack"
                         android:textSize="15sp"
-                        android:layout_below="@+id/tv_desc_s" />
+                        android:textStyle="normal" />
 
                 </RelativeLayout>
 
@@ -105,8 +111,7 @@
         android:background="#fff"
         android:visibility="gone">
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
