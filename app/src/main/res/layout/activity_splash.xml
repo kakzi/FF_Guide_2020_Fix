@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorWhite"
     tools:context=".activity.SplashActivity">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@mipmap/ic_launcher_free" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,8 +22,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/app_name"
-        android:textColor="@color/colorWhite"
-        android:textSize="18sp" />
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btn_start"
@@ -32,9 +33,9 @@
         android:layout_below="@+id/img_splash"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:background="@drawable/background_button"
+        android:background="@drawable/background_button_splash"
         android:text="START"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
         android:visibility="invisible" />
 
     <ProgressBar
