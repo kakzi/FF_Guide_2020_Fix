@@ -10,17 +10,17 @@ public class WaeponModel implements Parcelable {
 
     private String id;
     private String name_waepon;
-    private String category;
+    private String url_detail;
     private String image_url;
     private String desc;
 
     public WaeponModel() {
     }
 
-    public WaeponModel(String id, String name_waepon, String category, String image_url, String desc) {
+    public WaeponModel(String id, String name_waepon, String url_detail, String image_url, String desc) {
         this.id = id;
         this.name_waepon = name_waepon;
-        this.category = category;
+        this.url_detail = url_detail;
         this.image_url = image_url;
         this.desc = desc;
     }
@@ -41,12 +41,12 @@ public class WaeponModel implements Parcelable {
         this.name_waepon = name_waepon;
     }
 
-    public String getCategory() {
-        return category;
+    public String getUrl_detail() {
+        return url_detail;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setUrl_detail(String url_detail) {
+        this.url_detail = url_detail;
     }
 
     public String getImage_url() {
@@ -65,24 +65,18 @@ public class WaeponModel implements Parcelable {
         this.desc = desc;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-
     public WaeponModel(JSONObject object) {
 
         try {
             String id = object.getString("id");
             String name_waepon = object.getString("name_waepon");
-            String category = object.getString("category");
+            String url_detail = object.getString("url_detail");
             String image_url = object.getString("image_url");
             String desc = object.getString("desc");
 
             this.id = id;
             this.name_waepon = name_waepon;
-            this.category = category;
+            this.url_detail = url_detail;
             this.image_url = image_url;
             this.desc = desc;
 
@@ -93,10 +87,15 @@ public class WaeponModel implements Parcelable {
     }
 
     @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.id);
         dest.writeString(this.name_waepon);
-        dest.writeString(this.category);
+        dest.writeString(this.url_detail);
         dest.writeString(this.image_url);
         dest.writeString(this.desc);
     }
@@ -104,7 +103,7 @@ public class WaeponModel implements Parcelable {
     protected WaeponModel(Parcel in) {
         this.id = in.readString();
         this.name_waepon = in.readString();
-        this.category = in.readString();
+        this.url_detail = in.readString();
         this.image_url = in.readString();
         this.desc = in.readString();
     }

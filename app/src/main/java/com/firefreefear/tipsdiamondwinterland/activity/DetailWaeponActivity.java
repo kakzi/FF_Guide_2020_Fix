@@ -23,8 +23,7 @@ public class DetailWaeponActivity extends AppCompatActivity {
 
     public static final String EXTRA_WAEPON_DATA = "extra_waepon_data";
     private ImageView img_waepon;
-    private TextView name, desc;
-    private String img_url, name_waepon, desc_waepon;
+    private String url_detail;
 
     private AdView adView;
     private RelativeLayout banner_layout;
@@ -52,8 +51,6 @@ public class DetailWaeponActivity extends AppCompatActivity {
         });
 
         img_waepon = findViewById(R.id.image_waepon);
-        name = findViewById(R.id.name);
-        desc = findViewById(R.id.desc);
 
         getDataTips();
         setDataTips();
@@ -62,18 +59,14 @@ public class DetailWaeponActivity extends AppCompatActivity {
     private void getDataTips() {
 
         WaeponModel waeponModel = getIntent().getParcelableExtra(EXTRA_WAEPON_DATA);
-        img_url = waeponModel.getImage_url();
-        name_waepon = waeponModel.getName_waepon();
-        desc_waepon = waeponModel.getDesc();
+        url_detail = waeponModel.getUrl_detail();
 
     }
 
     private void setDataTips() {
 
-        Glide.with(this).load(img_url).transition(DrawableTransitionOptions.withCrossFade())
+        Glide.with(this).load(url_detail).transition(DrawableTransitionOptions.withCrossFade())
                 .into(img_waepon);
-        name.setText(name_waepon);
-        desc.setText(desc_waepon);
 
     }
 }
