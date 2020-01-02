@@ -32,6 +32,7 @@ public class DetailWaeponActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_waepon);
+        getSupportActionBar().setElevation(0);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override

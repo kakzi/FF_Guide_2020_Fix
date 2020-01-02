@@ -6,13 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_waves"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer_effect"
@@ -45,8 +53,8 @@
             android:id="@+id/rv_menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_menu"
-            android:layout_marginBottom="56dp"/>
+            android:layout_marginBottom="56dp"
+            tools:listitem="@layout/item_menu" />
 
 
         <RelativeLayout
@@ -57,8 +65,7 @@
             android:background="#fff"
             android:visibility="gone">
 
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
+            <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/adView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

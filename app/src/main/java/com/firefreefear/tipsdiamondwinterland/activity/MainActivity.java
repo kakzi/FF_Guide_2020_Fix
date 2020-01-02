@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -43,13 +45,14 @@ public class MainActivity extends AppCompatActivity {
     private AdView adView;
     private RelativeLayout banner_layout;
     private InterstitialAd interstitialAd;
-    public static int nbShowInterstitial = 1;
+    public static int nbShowInterstitial = 2;
     public static int mCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setElevation(0);
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -184,14 +187,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.share:
-                Toast.makeText(this, "Anda Memilih Share", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.rate:
-                Toast.makeText(this, "Anda Memilih Rate", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Anda Memilih Rate", Toast.LENGTH_SHORT).show();
+                Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                        Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                        Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                try { startActivity(goToMarket); }
+                catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
                 break;
             case R.id.privacy:
-                Toast.makeText(this, "Anda Memilih Privacy", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Anda Memilih Privacy", Toast.LENGTH_SHORT).show();
+                String url = "https://www.yumiekids.blogspot.com/2020/01/privacy-tos.html";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
                 break;
         }
         return super.onOptionsItemSelected(item);

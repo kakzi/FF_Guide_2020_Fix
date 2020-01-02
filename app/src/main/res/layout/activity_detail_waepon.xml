@@ -6,6 +6,11 @@
     android:layout_height="wrap_content"
     tools:context=".activity.DetailWaeponActivity">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/ic_waves"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +23,9 @@
             <ImageView
                 android:id="@+id/image_waepon"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                 android:src="@drawable/exam"/>
 
         </RelativeLayout>
 

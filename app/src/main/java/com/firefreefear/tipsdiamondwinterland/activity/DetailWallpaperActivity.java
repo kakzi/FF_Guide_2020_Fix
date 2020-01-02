@@ -117,37 +117,5 @@ public class DetailWallpaperActivity extends AppCompatActivity implements View.O
         return bitmap;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_download, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.download:
-                Toast.makeText(this, "Anda Memilih Download", Toast.LENGTH_SHORT).show();
-                startSave();
-                break;
-            case R.id.share:
-                Toast.makeText(this, "Anda Memilih Share", Toast.LENGTH_SHORT).show();
-                startShare();
-                break;
-            case R.id.rate:
-                Toast.makeText(this, "Anda Memilih Rate", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void startShare() {
-
-    }
-
-    private void startSave() {
-
-    }
 
 }

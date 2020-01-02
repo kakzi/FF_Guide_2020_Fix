@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private Button btn_start;
     private ProgressBar pb_splash;
-    private final int SPLASH_DISPLAY_LENGTH = 7000;
+    private final int SPLASH_DISPLAY_LENGTH = 3000;
     private InterstitialAd interstitialAd;
 
     @Override

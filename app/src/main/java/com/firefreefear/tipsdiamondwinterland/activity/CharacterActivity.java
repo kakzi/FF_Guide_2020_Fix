@@ -133,32 +133,10 @@ public class CharacterActivity extends AppCompatActivity {
         super.onPause();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder().build();
         interstitialAd.loadAd(adRequest);
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.share:
-                Toast.makeText(this, "Anda Memilih Share", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.rate:
-                Toast.makeText(this, "Anda Memilih Rate", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.privacy:
-                Toast.makeText(this, "Anda Memilih Privacy", Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
