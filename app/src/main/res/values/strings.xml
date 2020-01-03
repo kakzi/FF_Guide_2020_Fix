@@ -11,13 +11,9 @@
     <string name="video">Video</string>
     <string name="detail_wallpaper">Set Wallpaper</string>
     <string name="sub_tips">TIPS 1</string>
-    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="ads_banner">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitialAds">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="dashboard">Dasboard</string>
+    <string name="app_id">ca-app-pub-4070198967600476~8571127038</string>
+    <string name="ads_banner">ca-app-pub-4070198967600476/7045334510</string>
+    <string name="interstitialAds">ca-app-pub-4070198967600476/1607985638</string>
     <string name="home">Home</string>
-    <string name="download">Download</string>
-    <string name="share">Share</string>
-    <string name="rate">Rate</string>
     <string name="diamond_detail">Detail</string>
 </resources>

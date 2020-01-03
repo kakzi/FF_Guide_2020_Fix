@@ -7,11 +7,11 @@ android {
         applicationId "com.firefreefear.tipsdiamondwinterland"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "BASE_URL", '"https://script.google.com/macros/s/AKfycbw3KK3IxPtp4zDGAD1KUGuVRWczFy-64BYWmitdTob706v1q94/exec"')
     }
+
     buildTypes {
         release {
             minifyEnabled true

@@ -40,7 +40,7 @@ public class WallpaperActivity extends AppCompatActivity {
     private AdView adView;
     private RelativeLayout banner_layout;
     private InterstitialAd interstitialAd;
-    public static int nbShowInterstitial = 2;
+    public static int nbShowInterstitial = 3;
     public static int mCount = 0;
 
     @Override

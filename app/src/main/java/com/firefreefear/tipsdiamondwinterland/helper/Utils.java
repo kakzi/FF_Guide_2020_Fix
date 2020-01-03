@@ -1,10 +1,9 @@
 package com.firefreefear.tipsdiamondwinterland.helper;
 
-import com.firefreefear.tipsdiamondwinterland.BuildConfig;
 
 public class Utils {
 
-    public final static String BASE_URL = BuildConfig.BASE_URL;
+    public final static String BASE_URL = "https://script.google.com/macros/s/AKfycbw3KK3IxPtp4zDGAD1KUGuVRWczFy-64BYWmitdTob706v1q94/exec";
     public final static String GET_MENU = "?action=getMenu";
     public final static String GET_TIPS = "?action=getTips";
     public final static String GET_WAEPON = "?action=getWaepon";
